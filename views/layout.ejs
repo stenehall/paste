@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paste</title>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Source+Code+Pro'>
+    <link rel="stylesheet" href="/public/vendor/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/public/vendor/codemirror/theme/solarized.css">
+    <link rel='stylesheet' href='/public/stylesheets/style.css' />
+    <script src="/public/vendor/codemirror/lib/codemirror.js"></script>
+    <script src="/public/vendor/codemirror/addon/mode/loadmode.js"></script>
+  </head>
+  <body>
+    <%-body %>
+    <ul class="btn">
+      <li><a href="/VVNVA8BcvJ/1.html">About</a></li>
+      <li><a href="/">New</a></li>
+    </ul>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("paste"), {
+        lineNumbers: true,
+        tabMode: "indent",
+        theme: "solarized dark",
+      });
+
+      CodeMirror.modeURL = "/public/vendor/codemirror/mode/%N/%N.js";
+
+      var input = document.getElementById("select");
+      function selectMode() {
+        var choice = input.options[input.selectedIndex].innerHTML;
+        editor.setOption("mode", choice);
+        CodeMirror.autoLoadMode(editor, choice);
+      }
+      selectMode();
+    </script>
+  </body>
+</html>

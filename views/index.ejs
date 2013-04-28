@@ -1,0 +1,14 @@
+<% layout('layout') -%>
+<form method="POST" action="/">
+  <input type="hidden" name="hash" value="<%= paste.hash || '' %>">
+  <input type="hidden" name="revision" value="<%= paste.revision || '' %>">
+  <textarea id="paste" name="paste"><%= paste.content[(paste.currentRevision)] || '' %></textarea>
+  <div class="btn select">
+    <select name="mode" onchange="selectMode()" id=select>
+    <% for(var i=0; i<modes.length; i++) { %>
+      <option<% if (paste.mode == modes[i]) { %> selected="selected"<% } %>><%= modes[i] %></option>
+    <% } %>
+    </select>
+  </div>
+  <input class="btn" type="submit"></form>
+</form>
