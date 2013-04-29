@@ -9,7 +9,11 @@ module.exports = function(grunt) {
       },
       dev: {
         files: {
-          'public/javascripts/script.min.js': ['public/vendor/codemirror/lib/codemirror.js', 'public/vendor/codemirror/addon/mode/loadmode.js']
+          'public/javascripts/script.min.js': [
+            'public/vendor/codemirror/lib/codemirror.js',
+            'public/vendor/codemirror/addon/mode/loadmode.js',
+            'public/javascripts/script.js'
+          ]
         }
       }
     },
@@ -20,10 +24,10 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          'public/stylesheets/style..min.css': [
-            'public/scss/style.scss',
+          'public/stylesheets/style.min.css': [
             'public/vendor/codemirror/lib/codemirror.css',
-            'public/vendor/codemirror/theme/solarized.css'
+            'public/vendor/codemirror/theme/solarized.css',
+            'public/scss/style.scss',
           ]
         }
       },
@@ -43,7 +47,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['public/scss/*.scss', 'public/javascripts/style.js'],
+        files: ['public/scss/*.scss', 'public/javascripts/script.js'],
         tasks: ['sass:dev', 'sass:dist', 'uglify'],
         options: {
           interrupt: true

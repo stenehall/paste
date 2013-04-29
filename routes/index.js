@@ -5,7 +5,7 @@ var fs = require('fs')
   , modes = ["apl", "asterisk", "clike", "clojure", "coffeescript", "commonlisp", "css", "d", "diff", "ecl", "erlang", "gas", "gfm", "go", "groovy", "haskell", "haxe", "h tmlembedded", "htmlmixed", "http", "javascript", "jinja2", "less", "livescript", "lua", "markdown", "mirc", "ntriples", "ocaml", "pascal", "perl", "php", "pig", "properties", "python", "q", "r", "rpm", "rst", "ruby", "rust", "sass", "scheme", "shell", "sieve", "smalltalk", "smarty", "sparql", "sql", "stex", "tcl", "tiddlywiki", "tiki", "tur tle", "vb", "vbscript", "velocity", "verilog", "xml", "xquery", "yaml", "z80"];
 
 exports.index = function(req, res){
-  var paste = {hash: null, revision: null, content: []};
+  var paste = {hash: null, revision: null, mode: 'javascript', content: []};
   res.render('index', {
     paste: paste,
     modes: modes
@@ -16,7 +16,7 @@ exports.post = function(req, res){
 
   var hash = req.body.hash || shortid.generate();
   var revision = req.body.revision || 0;
-  var paste = {hash: hash, revisions: revision, mode: '', content: []}
+  var paste = {hash: hash, revisions: revision, mode: 'javascript', content: []}
 
   var fileName = 'storage/'+hash;
   var exists = fs.existsSync(fileName);
