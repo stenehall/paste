@@ -5,17 +5,12 @@ html, body {
   margin: 0;
   }
 
-
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
 
 a {
   color: #00B7FF;
-  }
-
-.CodeMirror-linenumbers, .CodeMirror-linenumber {
-  color: #e3e3e3;
   }
 
 form {
@@ -92,6 +87,9 @@ textarea, .paste, .CodeMirror {
   border-color: #e3e3e3;
   }
 
+.CodeMirror-linenumbers, .CodeMirror-linenumber {
+  color: #e3e3e3;
+  }
 
 .cm-s-solarized.cm-s-dark .CodeMirror-gutters {
   background: transparent;

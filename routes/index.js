@@ -6,8 +6,11 @@ var fs = require('fs')
 
 exports.index = function(req, res){
   var paste = {hash: null, revision: null, content: []};
-  res.render('index', { paste: paste, modes: modes});
-};
+  res.render('index', {
+    paste: paste,
+    modes: modes
+  });
+}
 
 exports.post = function(req, res){
 
@@ -65,7 +68,10 @@ exports.get = function(req, res){
         }
         else
         {
-          res.render('index', { paste: paste, modes: modes});
+          res.render('index', {
+            paste: paste,
+            modes: modes
+          });
         }
       });
     }
